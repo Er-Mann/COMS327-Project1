@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -O2
-
+LDLIBS = -lm
 
 all: mapper testgraph citydata
 
@@ -27,10 +27,10 @@ graph.o: graph.c graph.h
 
 
 citydata: citydata.o graph.o
-	$(CC) $(CFLAGS) -o citydata citydata.o graph.o
+	$(CC) $(CFLAGS) -o citydata citydata.o graph.o $(LDLIBS)
 
 citydata.o: citydata.c citydata.h graph.h testgraph.h
-	$(CC) $(CFLAGS) -c citydata.c
+	$(CC) $(CFLAGS) -c citydata.c 
 
 
 clean:
