@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "citydata.h"
 #include "graph.h"
 #include "testgraph.h"
 #include "citydata.h"
+
 #ifndef M_PI
 #define M_PI 3.1415926535897932384
 #endif
@@ -76,7 +76,7 @@ static int split_tabs(char* line, char* out[], int kmax){
     return k;
 }
 
-static char* clone_string(const char* s){
+char* clone_string(const char* s){
     size_t n = strlen(s);
     char* r = (char*)malloc(n+1);
     if(r) memcpy(r, s, n+1);
